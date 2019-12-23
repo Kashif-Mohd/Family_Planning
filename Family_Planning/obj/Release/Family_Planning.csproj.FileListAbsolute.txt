@@ -6,3 +6,4 @@ C:\Users\FA0421\Documents\Visual Studio 2012\Projects\Family_Planning\Family_Pla
 C:\Users\FA0421\Documents\Visual Studio 2012\Projects\Family_Planning\Family_Planning\bin\MySql.Fabric.Plugin.dll
 C:\Users\FA0421\Documents\Visual Studio 2012\Projects\Family_Planning\Family_Planning\obj\Release\Family_Planning.dll
 C:\Users\FA0421\Documents\Visual Studio 2012\Projects\Family_Planning\Family_Planning\obj\Release\Family_Planning.pdb
+C:\Users\FA0421\Documents\Visual Studio 2012\Projects\Family_Planning\Family_Planning\obj\Release\Family_Planning.csprojResolveAssemblyReference.cache

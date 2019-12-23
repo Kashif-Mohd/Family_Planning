@@ -273,6 +273,14 @@
      
             </div>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item" id="navMenu" runat="server">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapse_Table" aria-expanded="true" aria-controls="collapse_Table">
@@ -298,11 +306,12 @@
 
 
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+
+            <!-- Nav Item - Entry Forms -->
+            <li class="nav-item" id="navEntryForm" runat="server">
+                <a class="nav-link" href="method_removal_entry.aspx">
+                    <i class="fas fa-fw fa-pen"></i>
+                    <span>Method Removal (Entry)</span></a>
             </li>
 
             <!-- Divider -->
@@ -315,16 +324,16 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+            <li class="nav-item" id="navError" runat="server">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_Error" aria-expanded="true" aria-controls="collapse_Error">
+                    <i class="fas fa-fw fa-ban"></i>
+                    <span>Error Forms</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapse_Error" runat="server" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="#">Buttons</a>
-                        <a class="collapse-item" href="#">Cards</a>
+                        <h6 class="collapse-header">Duplicate:</h6>
+                        <a class="collapse-item" href="duplicate_form1.aspx" id="duplicate_form1" runat="server">Form-1</a>
+                        <a class="collapse-item" href="duplicate_form2.aspx" id="duplicate_form2" runat="server">Form-2</a>
                     </div>
                 </div>
             </li>

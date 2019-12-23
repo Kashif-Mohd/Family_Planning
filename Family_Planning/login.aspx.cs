@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-
 namespace Family_Planning
 {
     public partial class login : System.Web.UI.Page
@@ -16,6 +15,7 @@ namespace Family_Planning
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["FP_username"] = null;
+            Session["FP_userid"] = null;
             Login1.Focus();
         }
 
@@ -28,14 +28,20 @@ namespace Family_Planning
             if (blnresult == true)
             {
                 e.Authenticated = true;
-                Session["FP_username"] = Login1.UserName;
+                Session["FP_userid"] = Login1.UserName;
+
                 Response.Redirect("dashboard.aspx");
             }
             else
+            {
                 e.Authenticated = false;
+            }
         }
 
-        protected static Boolean Authentication(string username, string password)
+
+
+
+        protected Boolean Authentication(string username, string password)
         {
             string connstring = ConfigurationManager.ConnectionStrings["LocalMySql"].ConnectionString;
             string selectcmd = "SELECT * from team where password='" + password + "' and user_name='" + username + "'";
@@ -50,11 +56,21 @@ namespace Family_Planning
                 reader = cmd.ExecuteReader();
 
                 if (reader.Read())
+                {
+                    Session["FP_username"] = reader["sra_name"].ToString();
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
             finally { conn.Close(); }
         }
+
+
+
+
+
     }
 }

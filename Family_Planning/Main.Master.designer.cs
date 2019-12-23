@@ -94,6 +94,51 @@ namespace Family_Planning {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor form_2;
         
         /// <summary>
+        /// navEntryForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navEntryForm;
+        
+        /// <summary>
+        /// navError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navError;
+        
+        /// <summary>
+        /// collapse_Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl collapse_Error;
+        
+        /// <summary>
+        /// duplicate_form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor duplicate_form1;
+        
+        /// <summary>
+        /// duplicate_form2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor duplicate_form2;
+        
+        /// <summary>
         /// lbePage control.
         /// </summary>
         /// <remarks>

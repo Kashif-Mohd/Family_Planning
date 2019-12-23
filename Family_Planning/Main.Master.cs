@@ -18,12 +18,12 @@ namespace Family_Planning
             lbeUserName.Text = Convert.ToString(Session["FP_username"]);
 
 
-            if (Session["FP_username"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
+            //if (Session["FP_username"] == null)
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
+            //else
+            //{
                 if (Convert.ToString(Session["WebForm_FP"]) == "dashboard")
                 {
                     navdash.Attributes.Add("class", "nav-item active");
@@ -70,9 +70,32 @@ namespace Family_Planning
                     Session["WebForm_FP"] = null;
                     lbePage.Text = "Removal Method";
                 }
+                else if (Convert.ToString(Session["WebForm_FP"]) == "duplicate_form1")
+                {
+                    navError.Attributes.Add("class", "nav-item active");
+                    collapse_Error.Attributes.Add("class", "collapse show");
+                    duplicate_form1.Attributes.Add("class", "collapse-item active");
+                    Session["WebForm_FP"] = null;
+                    lbePage.Text = "Duplicate Form-1";
+                }
+                else if (Convert.ToString(Session["WebForm_FP"]) == "duplicate_form2")
+                {
+                    navError.Attributes.Add("class", "nav-item active");
+                    collapse_Error.Attributes.Add("class", "collapse show");
+                    duplicate_form2.Attributes.Add("class", "collapse-item active");
+                    Session["WebForm_FP"] = null;
+                    lbePage.Text = "Duplicate Form-2";
+                }
+                    // Method Removal (Entry)
+                else if (Convert.ToString(Session["WebForm_FP"]) == "method_removal_entry")
+                {
+                    navEntryForm.Attributes.Add("class", "nav-item active");
+                    Session["WebForm_FP"] = null;
+                    lbePage.Text = "Method Removal (Entry)";
+                }
 
             }
-        }
+     //   }
 
 
 
