@@ -149,9 +149,98 @@
             if ($('#<%= txtq6.ClientID %> input:checked').val() == '14') {
                 document.getElementById("TR_Q6").style.display = 'table-row';
             }
-            else if ($('#<%= txtq17.ClientID %> input:checked').val() == '11') {
+
+            if (parseInt(document.getElementById("txtq7").value) >= 1) {
+                document.getElementById("TR_Q8").style.display = 'table-row';
+                document.getElementById("TR_Q9").style.display = 'table-row';
+                document.getElementById("TR_Q10").style.display = 'table-row';
+                document.getElementById("TR_Q11").style.display = 'table-row';
+                document.getElementById("TR_Q12").style.display = 'table-row';
+                document.getElementById("TR_Q13_m").style.display = 'table-row';
+                document.getElementById("TR_Q13_f").style.display = 'table-row';
+                document.getElementById("TR_Q14_d").style.display = 'table-row';
+                document.getElementById("TR_Q14_m").style.display = 'table-row';
+                document.getElementById("TR_Q14_y").style.display = 'table-row';
+            }
+
+            if ($('#<%= txtq17.ClientID %> input:checked').val() == '11') {
                 document.getElementById("TR_Q17").style.display = 'table-row';
             }
+            if ((parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1) {
+                document.getElementById("TR_Q15_d").style.display = 'table-row';
+                document.getElementById("TR_Q15_m").style.display = 'table-row';
+                document.getElementById("TR_Q15_y").style.display = 'table-row';
+            }
+
+        }
+
+
+
+
+
+
+        function enable(id) {
+            var val = parseInt(document.getElementById(id).value);
+
+            if (id == 'txtq7') {
+                if (val >= 1) {
+                    document.getElementById("TR_Q8").style.display = 'table-row';
+                    document.getElementById("TR_Q9").style.display = 'table-row';
+                    document.getElementById("TR_Q10").style.display = 'table-row';
+                    document.getElementById("TR_Q11").style.display = 'table-row';
+                    document.getElementById("TR_Q12").style.display = 'table-row';
+                    document.getElementById("TR_Q13_m").style.display = 'table-row';
+                    document.getElementById("TR_Q13_f").style.display = 'table-row';
+                    document.getElementById("TR_Q14_d").style.display = 'table-row';
+                    document.getElementById("TR_Q14_m").style.display = 'table-row';
+                    document.getElementById("TR_Q14_y").style.display = 'table-row';
+                }
+                else  {
+                    document.getElementById("TR_Q8").style.display = 'none';
+                    document.getElementById("TR_Q9").style.display = 'none';
+                    document.getElementById("TR_Q10").style.display = 'none';
+                    document.getElementById("TR_Q11").style.display = 'none';
+                    document.getElementById("TR_Q12").style.display = 'none';
+                    document.getElementById("TR_Q13_m").style.display = 'none';
+                    document.getElementById("TR_Q13_f").style.display = 'none';
+                    document.getElementById("TR_Q14_d").style.display = 'none';
+                    document.getElementById("TR_Q14_m").style.display = 'none';
+                    document.getElementById("TR_Q14_y").style.display = 'none';
+
+                    document.getElementById("txtq8").value = "";
+                    document.getElementById("txtq9").value = "";
+                    document.getElementById("txtq10").value = "";
+                    document.getElementById("txtq11").value = "";
+                    document.getElementById("txtq12").value = "";
+                    document.getElementById("txtq13_m").value = "";
+                    document.getElementById("txtq13_f").value = "";
+                    document.getElementById("txtq14_d").value = "";
+                    document.getElementById("txtq14_m").value = "";
+                    document.getElementById("txtq14_y").value = "";
+                }
+            }
+
+
+            if (id == 'txtq13_m' || id == 'txtq13_f') {
+                if ((parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1) {
+                    document.getElementById("TR_Q15_d").style.display = 'table-row';
+                    document.getElementById("TR_Q15_m").style.display = 'table-row';
+                    document.getElementById("TR_Q15_y").style.display = 'table-row';
+                }
+                else
+                {
+                    document.getElementById("TR_Q15_d").style.display = 'none';
+                    document.getElementById("TR_Q15_m").style.display = 'none';
+                    document.getElementById("TR_Q15_y").style.display = 'none';
+                    document.getElementById("txtq15_d").value = "";
+                    document.getElementById("txtq15_m").value = "";
+                    document.getElementById("txtq15_y").value = "";
+
+                }
+            }
+
+
+
         }
 
 
@@ -160,10 +249,39 @@
 
 
 
+        function clearRadioButtonList_Q20() {
+
+            var elementRef = document.getElementById('<%= txtq20.ClientID %>');
+             var inputElementArray = elementRef.getElementsByTagName('input');
+
+             for (var i = 0; i < inputElementArray.length; i++) {
+                 var inputElement = inputElementArray[i];
+
+                 inputElement.checked = false;
+             }
+             return false;
+        }
+        function clearRadioButtonList_Q21() {
+
+            var elementRef = document.getElementById('<%= txtq21.ClientID %>');
+            var inputElementArray = elementRef.getElementsByTagName('input');
+
+            for (var i = 0; i < inputElementArray.length; i++) {
+                var inputElement = inputElementArray[i];
+
+                inputElement.checked = false;
+            }
+            return false;
+        }
+
+
+
 
         function RadioButton(id) {
 
+
             var Q6_selectedvalue = $('#<%= txtq6.ClientID %> input:checked').val();
+
             var Q17_selectedvalue = $('#<%= txtq17.ClientID %> input:checked').val();
             var Q19_selectedvalue = $('#<%= txtq19.ClientID %> input:checked').val();
             var Q21_selectedvalue = $('#<%= txtq21.ClientID %> input:checked').val();
@@ -195,13 +313,22 @@
                     document.getElementById("TR_Q20").style.display = 'none';
                     document.getElementById("TR_Q21A").style.display = 'none';
                     document.getElementById("TR_Q21B").style.display = 'none';
+                    clearRadioButtonList_Q20();
+                    clearRadioButtonList_Q21();
+                    document.getElementById("txtq21_other").value = '';
                 }
                 else if (Q19_selectedvalue == "2") {
                     document.getElementById("TR_Q19").style.display = 'none';
+                    document.getElementById("txtq19_other").value = '';
                     document.getElementById("TR_Q20").style.display = 'table-row';
                     document.getElementById("TR_Q21A").style.display = 'table-row';
                 }
             }
+
+
+
+
+
             else if (id == 'txtq21') {
                 if (Q21_selectedvalue != "" && Q21_selectedvalue == "11") {
                     document.getElementById("TR_Q21B").style.display = 'table-row';
@@ -254,7 +381,126 @@
                 return false;
             }
 
-
+            else if (document.getElementById("txtq7").value == '' || document.getElementById("txtq7").value.length < 2) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq7").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq8").value == '' || document.getElementById("txtq8").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq8").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq9").value == '' || document.getElementById("txtq9").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq9").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq10").value == '' || document.getElementById("txtq10").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq10").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq11").value == '' || document.getElementById("txtq11").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq11").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq12").value == '' || document.getElementById("txtq12").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq12").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_m").value == '' || document.getElementById("txtq13_m").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq13_m").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_f").value == '' || document.getElementById("txtq13_f").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq13_f").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_d").value == '' || document.getElementById("txtq14_d").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq14_d").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_m").value == '' || document.getElementById("txtq14_m").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq14_m").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_y").value == '' || document.getElementById("txtq14_y").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq14_y").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_d").value == '' || document.getElementById("txtq15_d").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq15_d").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_m").value == '' || document.getElementById("txtq15_m").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq15_m").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_y").value == '' || document.getElementById("txtq15_y").value.length < 2)) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq15_y").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq16_d").value == '' || document.getElementById("txtq16_d").value.length < 2) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq16_d").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq16_m").value == '' || document.getElementById("txtq16_m").value.length < 2) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq16_m").focus();
+                return false;
+            }
+            else if (document.getElementById("txtq16_y").value == '' || document.getElementById("txtq16_y").value.length < 2) {
+                alert("Enter Value, 2 digit long!")
+                document.getElementById("txtq16_y").focus();
+                return false;
+            }
+            else if (Validate(document.getElementById('<%=txtq17.ClientID%>')) == false) {
+                alert("Select Q17 Value")
+                return false;
+            }
+            else if ($('#<%= txtq17.ClientID %> input:checked').val() == '11' && (document.getElementById("txtq17_other").value == '' || document.getElementById("txtq17_other").value.length < 3)) {
+                alert("Enter Other Values")
+                document.getElementById("txtq17_other").focus();
+                return false;
+            }
+            else if (Validate(document.getElementById('<%=txtq18.ClientID%>')) == false) {
+                alert("Select Q18 Value")
+                return false;
+            }
+            else if (Validate(document.getElementById('<%=txtq19.ClientID%>')) == false) {
+                alert("Select Q19 Value")
+                return false;
+            }
+            else if ($('#<%= txtq19.ClientID %> input:checked').val() == '1' && (document.getElementById("txtq19_other").value == '' || document.getElementById("txtq19_other").value.length < 3)) {
+                alert("Enter Other Values")
+                document.getElementById("txtq19_other").focus();
+                return false;
+            }
+            else if ($('#<%= txtq19.ClientID %> input:checked').val() == '2' && Validate(document.getElementById('<%=txtq20.ClientID%>')) == false) {
+                alert("Select Q20 Value")
+                return false;
+            }
+            else if ($('#<%= txtq19.ClientID %> input:checked').val() == '2' && Validate(document.getElementById('<%=txtq21.ClientID%>')) == false) {
+                alert("Select Q21 Value")
+                return false;
+            }
+            else if ($('#<%= txtq21.ClientID %> input:checked').val() == '11' && (document.getElementById("txtq21_other").value == '' || document.getElementById("txtq21_other").value.length < 3)) {
+                alert("Enter Other Values")
+                document.getElementById("txtq21_other").focus();
+                return false;
+            }
 
 
     }
@@ -431,29 +677,29 @@
                 <tr class="trCSS">
                     <td class="TableColumn tdCSS">Q7. Gravida</td>
                     <td class="Space tdCSS">
-                        <asp:TextBox CssClass="form-control input-lg" ID="txtq7" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control input-lg" ID="txtq7" onkeyup="enable('txtq7')" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q8" style="display: none">
                     <td class="TableColumn tdCSS">Q8. Number of twin pregnancies</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq8" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q9" style="display: none">
                     <td class="TableColumn tdCSS">Q9. Number of children born alive in the past</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq9" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q10" style="display: none">
                     <td class="TableColumn tdCSS">Q10. Number of stillbirths</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq10" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q11" style="display: none">
                     <td class="TableColumn tdCSS">Q11. Number of abortions</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq11" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q12" style="display: none">
                     <td class="TableColumn tdCSS">Q12. Parity</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq12" ClientIDMode="Static" placeholder="" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
@@ -464,30 +710,30 @@
 
 
 
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q13_m" style="display: none">
                     <td class="TableColumn tdCSS">Q13. Number of children currently alive?</td>
                     <td class="Space tdCSS">
-                        <asp:TextBox CssClass="form-control input-lg" ID="txtq13_m" ClientIDMode="Static" placeholder="Male" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control input-lg" ID="txtq13_m" onkeyup="enable('txtq13_m')" ClientIDMode="Static" placeholder="Male" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q13_f" style="display: none">
                     <td class="TableColumn tdCSS"></td>
                     <td class="Space tdCSS">
-                        <asp:TextBox CssClass="form-control input-lg" ID="txtq13_f" ClientIDMode="Static" placeholder="Female" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control input-lg" ID="txtq13_f" onkeyup="enable('txtq13_f')" ClientIDMode="Static" placeholder="Female" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
 
 
 
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q14_d" style="display: none">
                     <td class="TableColumn tdCSS">Q14. Age of eldest child currently alive (99 if not applicable)</td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq14_d" ClientIDMode="Static" placeholder="Days" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q14_m" style="display: none">
                     <td class="TableColumn tdCSS"></td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq14_m" ClientIDMode="Static" placeholder="Months" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q14_y" style="display: none">
                     <td class="TableColumn tdCSS"></td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq14_y" ClientIDMode="Static" placeholder="Years" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
@@ -495,22 +741,30 @@
 
 
 
-                <tr class="trCSS">
+
+
+
+                <tr class="trCSS" id="TR_Q15_d" style="display: none">
                     <td class="TableColumn tdCSS">Q15. Age of youngest child currently alive (99 if not applicable)
                     </td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq15_d" ClientIDMode="Static" placeholder="Days" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q15_m" style="display: none">
                     <td class="TableColumn tdCSS"></td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq15_m" ClientIDMode="Static" placeholder="Months" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
-                <tr class="trCSS">
+                <tr class="trCSS" id="TR_Q15_y" style="display: none">
                     <td class="TableColumn tdCSS"></td>
                     <td class="Space tdCSS">
                         <asp:TextBox CssClass="form-control input-lg" ID="txtq15_y" ClientIDMode="Static" placeholder="Years" onkeypress="return OnlyNumeric(event)" type="tel" Font-Size="Medium" Height="2.1em" MaxLength="2" runat="server"></asp:TextBox></td>
                 </tr>
+
+
+
+
+
 
 
 
@@ -597,7 +851,7 @@
                         </asp:RadioButtonList>
                     </td>
                 </tr>
-                 <tr class="trCSS" id="TR_Q21A" style="display: none">
+                <tr class="trCSS" id="TR_Q21A" style="display: none">
                     <td class="TableColumn tdCSS">Q21. New method applied by</td>
                     <td class="Space tdCSS">
                         <asp:RadioButtonList ID="txtq21" runat="server" ClientIDMode="Static" onclick="RadioButton('txtq21')">
