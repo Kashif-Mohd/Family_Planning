@@ -18,12 +18,20 @@ namespace Family_Planning
             lbeUserName.Text = Convert.ToString(Session["FP_username"]);
 
 
-            //if (Session["FP_username"] == null)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
-            //else
-            //{
+            if (Convert.ToString(Session["FP_userid"]) == "team1" || Convert.ToString(Session["FP_userid"]) == "team2" || Convert.ToString(Session["FP_userid"]) == "team3") 
+            {
+                navError.Visible = false;
+                navMenu.Visible = false;
+                navdash.Visible = false;
+                navChart.Visible = false;
+            }
+
+            if (Session["FP_username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
                 if (Convert.ToString(Session["WebForm_FP"]) == "dashboard")
                 {
                     navdash.Attributes.Add("class", "nav-item active");
@@ -95,7 +103,7 @@ namespace Family_Planning
                 }
 
             }
-     //   }
+        }
 
 
 

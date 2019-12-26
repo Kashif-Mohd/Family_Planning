@@ -191,9 +191,6 @@
                     document.getElementById("TR_Q12").style.display = 'table-row';
                     document.getElementById("TR_Q13_m").style.display = 'table-row';
                     document.getElementById("TR_Q13_f").style.display = 'table-row';
-                    document.getElementById("TR_Q14_d").style.display = 'table-row';
-                    document.getElementById("TR_Q14_m").style.display = 'table-row';
-                    document.getElementById("TR_Q14_y").style.display = 'table-row';
                 }
                 else  {
                     document.getElementById("TR_Q8").style.display = 'none';
@@ -203,9 +200,6 @@
                     document.getElementById("TR_Q12").style.display = 'none';
                     document.getElementById("TR_Q13_m").style.display = 'none';
                     document.getElementById("TR_Q13_f").style.display = 'none';
-                    document.getElementById("TR_Q14_d").style.display = 'none';
-                    document.getElementById("TR_Q14_m").style.display = 'none';
-                    document.getElementById("TR_Q14_y").style.display = 'none';
 
                     document.getElementById("txtq8").value = "";
                     document.getElementById("txtq9").value = "";
@@ -214,24 +208,41 @@
                     document.getElementById("txtq12").value = "";
                     document.getElementById("txtq13_m").value = "";
                     document.getElementById("txtq13_f").value = "";
-                    document.getElementById("txtq14_d").value = "";
-                    document.getElementById("txtq14_m").value = "";
-                    document.getElementById("txtq14_y").value = "";
                 }
             }
 
 
             if (id == 'txtq13_m' || id == 'txtq13_f') {
-                if ((parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1) {
+                if ((parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) == 1) {
+                    document.getElementById("TR_Q14_d").style.display = 'table-row';
+                    document.getElementById("TR_Q14_m").style.display = 'table-row';
+                    document.getElementById("TR_Q14_y").style.display = 'table-row';
+                    document.getElementById("TR_Q15_d").style.display = 'none';
+                    document.getElementById("TR_Q15_m").style.display = 'none';
+                    document.getElementById("TR_Q15_y").style.display = 'none';
+                    document.getElementById("txtq15_d").value = "";
+                    document.getElementById("txtq15_m").value = "";
+                    document.getElementById("txtq15_y").value = "";
+                }
+                else if ((parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1) {
+                    document.getElementById("TR_Q14_d").style.display = 'table-row';
+                    document.getElementById("TR_Q14_m").style.display = 'table-row';
+                    document.getElementById("TR_Q14_y").style.display = 'table-row';
                     document.getElementById("TR_Q15_d").style.display = 'table-row';
                     document.getElementById("TR_Q15_m").style.display = 'table-row';
                     document.getElementById("TR_Q15_y").style.display = 'table-row';
                 }
                 else
                 {
+                    document.getElementById("TR_Q14_d").style.display = 'none';
+                    document.getElementById("TR_Q14_m").style.display = 'none';
+                    document.getElementById("TR_Q14_y").style.display = 'none';
                     document.getElementById("TR_Q15_d").style.display = 'none';
                     document.getElementById("TR_Q15_m").style.display = 'none';
                     document.getElementById("TR_Q15_y").style.display = 'none';
+                    document.getElementById("txtq14_d").value = "";
+                    document.getElementById("txtq14_m").value = "";
+                    document.getElementById("txtq14_y").value = "";
                     document.getElementById("txtq15_d").value = "";
                     document.getElementById("txtq15_m").value = "";
                     document.getElementById("txtq15_y").value = "";
@@ -371,102 +382,103 @@
                 document.getElementById('txtq5').focus();
                 return false;
             }
+           
             else if (Validate(document.getElementById('<%=txtq6.ClientID%>')) == false) {
                 alert("Select Q6 Value")
                 return false;
             }
             else if ($('#<%= txtq6.ClientID %> input:checked').val() == '14' && (document.getElementById("txtq6_other").value == '' || document.getElementById("txtq6_other").value.length < 3)) {
-                alert("Enter Other Values")
-                document.getElementById("txtq6_other").focus();
-                return false;
-            }
+                 alert("Enter Other Values")
+                 document.getElementById("txtq6_other").focus();
+                 return false;
+             }
 
-            else if (document.getElementById("txtq7").value == '' || document.getElementById("txtq7").value.length < 2) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq7").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq8").value == '' || document.getElementById("txtq8").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq8").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq9").value == '' || document.getElementById("txtq9").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq9").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq10").value == '' || document.getElementById("txtq10").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq10").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq11").value == '' || document.getElementById("txtq11").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq11").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq12").value == '' || document.getElementById("txtq12").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq12").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_m").value == '' || document.getElementById("txtq13_m").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq13_m").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_f").value == '' || document.getElementById("txtq13_f").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq13_f").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_d").value == '' || document.getElementById("txtq14_d").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq14_d").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_m").value == '' || document.getElementById("txtq14_m").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq14_m").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq14_y").value == '' || document.getElementById("txtq14_y").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq14_y").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_d").value == '' || document.getElementById("txtq15_d").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq15_d").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_m").value == '' || document.getElementById("txtq15_m").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq15_m").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_y").value == '' || document.getElementById("txtq15_y").value.length < 2)) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq15_y").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq16_d").value == '' || document.getElementById("txtq16_d").value.length < 2) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq16_d").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq16_m").value == '' || document.getElementById("txtq16_m").value.length < 2) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq16_m").focus();
-                return false;
-            }
-            else if (document.getElementById("txtq16_y").value == '' || document.getElementById("txtq16_y").value.length < 2) {
-                alert("Enter Value, 2 digit long!")
-                document.getElementById("txtq16_y").focus();
-                return false;
-            }
-            else if (Validate(document.getElementById('<%=txtq17.ClientID%>')) == false) {
+             else if (document.getElementById("txtq7").value == '' || document.getElementById("txtq7").value.length < 2) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq7").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq8").value == '' || document.getElementById("txtq8").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq8").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq9").value == '' || document.getElementById("txtq9").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq9").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq10").value == '' || document.getElementById("txtq10").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq10").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq11").value == '' || document.getElementById("txtq11").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq11").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq12").value == '' || document.getElementById("txtq12").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq12").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_m").value == '' || document.getElementById("txtq13_m").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq13_m").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (document.getElementById("txtq13_f").value == '' || document.getElementById("txtq13_f").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq13_f").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) >= 1 && (document.getElementById("txtq14_d").value == '' || document.getElementById("txtq14_d").value.length < 2 || document.getElementById("txtq14_d").value > 30)) {
+                 alert("Enter Value less than 31, 2 digit long!")
+                 document.getElementById("txtq14_d").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) >= 1 && (document.getElementById("txtq14_m").value == '' || document.getElementById("txtq14_m").value.length < 2 || document.getElementById("txtq14_m").value >= 12)) {
+                 alert("Enter Value less than 12, 2 digit long!")
+                 document.getElementById("txtq14_m").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) >= 1 && (document.getElementById("txtq14_y").value == '' || document.getElementById("txtq14_y").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq14_y").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_d").value == '' || document.getElementById("txtq15_d").value.length < 2 || document.getElementById("txtq15_d").value > 30)) {
+                 alert("Enter Value less than 31, 2 digit long!")
+                 document.getElementById("txtq15_d").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_m").value == '' || document.getElementById("txtq15_m").value.length < 2 || document.getElementById("txtq15_m").value >= 12)) {
+                 alert("Enter Value less than 12, 2 digit long!")
+                 document.getElementById("txtq15_m").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq7").value >= 1 && (parseInt(document.getElementById("txtq13_m").value) + parseInt(document.getElementById("txtq13_f").value)) > 1 && (document.getElementById("txtq15_y").value == '' || document.getElementById("txtq15_y").value.length < 2)) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq15_y").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq16_d").value == '' || document.getElementById("txtq16_d").value.length < 2 || document.getElementById("txtq16_d").value > 30) {
+                 alert("Enter Value less than 31, 2 digit long!")
+                 document.getElementById("txtq16_d").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq16_m").value == '' || document.getElementById("txtq16_m").value.length < 2 || document.getElementById("txtq16_m").value >= 12) {
+                 alert("Enter Value less than 12, 2 digit long!")
+                 document.getElementById("txtq16_m").focus();
+                 return false;
+             }
+             else if (document.getElementById("txtq16_y").value == '' || document.getElementById("txtq16_y").value.length < 2) {
+                 alert("Enter Value, 2 digit long!")
+                 document.getElementById("txtq16_y").focus();
+                 return false;
+             }
+             else if (Validate(document.getElementById('<%=txtq17.ClientID%>')) == false) {
                 alert("Select Q17 Value")
                 return false;
             }
@@ -501,7 +513,6 @@
                 document.getElementById("txtq21_other").focus();
                 return false;
             }
-
 
     }
 
@@ -586,18 +597,19 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <EditRowStyle BackColor="#999999" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#33d9b2" ForeColor="white" Font-Bold="True" Height="40px" />
-                    <PagerStyle BackColor="#576574" ForeColor="White" CssClass="StylePager" />
-                    <PagerSettings Position="TopAndBottom" Mode="NumericFirstLast" PreviousPageText="&amp;lt;" PageButtonCount="13" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#74b9ff" ForeColor="white" Font-Bold="True" Height="40px" />
+                <PagerStyle BackColor="#576574" ForeColor="White" CssClass="StylePager" />
+                <PagerSettings Position="TopAndBottom" Mode="NumericFirstLast" PreviousPageText="&amp;lt;" PageButtonCount="13" />
+
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </div>
         </asp:Panel>
@@ -608,7 +620,7 @@
     <%--Entry Forms--%>
 
 
-    <asp:Panel ID="Panel1" runat="server" DefaultButton="btnNext" Visible="true">
+    <asp:Panel ID="Panel1" runat="server" DefaultButton="btnNext" Visible="false">
 
         <div class="Mobile">
             <table style="width: 100%; font-size: 1em; color: #4f5963; text-align: left;">
@@ -638,7 +650,7 @@
                 <tr class="trCSS">
                     <td class="TableColumn tdCSS">Q5. Date of Visit</td>
                     <td class="Space tdCSS">
-                        <asp:TextBox ID="txtq5" Font-Bold="true" Font-Size="16px" ClientIDMode="Static" placeholder="dd-mm-yyyy" ReadOnly="true" CssClass="txtboxx" Height="32px" runat="server" Width="8.2em"></asp:TextBox>
+                        <asp:TextBox ID="txtq5" Font-Bold="true" Font-Size="15px" ClientIDMode="Static" placeholder="dd-mm-yyyy" CssClass="txtboxx" Height="32px" runat="server" Width="8.2em"></asp:TextBox>
                         <asp:ImageButton ID="btnCalndrDate" ImageUrl="~/img/calendar1.png" CssClass="calanderButton" runat="server" />
                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtq5" PopupButtonID="btnCalndrDate" Format="dd-MM-yyyy" />
                     </td>

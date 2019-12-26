@@ -103,7 +103,7 @@
         .txtboxx {
             color: #2d3436;
             font-family: 'Yu Gothic';
-            text-transform: uppercase;
+            text-transform: lowercase;
             padding: 8px;
             border-radius: 5px;
             border: 2px solid #0984e3;
@@ -274,7 +274,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <li class="nav-item" id="navChart" runat="server">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
