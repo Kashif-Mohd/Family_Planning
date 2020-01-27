@@ -645,7 +645,7 @@
                 <tr class="trCSS">
                     <td class="TableColumn tdCSS">Q4. Team Code</td>
                     <td class="Space tdCSS">
-                        <asp:TextBox CssClass="form-control input-lg" ID="txtq4" ReadOnly="true" Style="text-transform: uppercase" ClientIDMode="Static" type="text" Font-Size="Medium" Height="2.1em" placeholder="code" MaxLength="3" runat="server"></asp:TextBox></td>
+                        <asp:TextBox CssClass="form-control input-lg" ID="txtq4" ReadOnly="true"  ClientIDMode="Static" type="text" Font-Size="Medium" Height="2.1em" placeholder="code" MaxLength="3" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr class="trCSS">
                     <td class="TableColumn tdCSS">Q5. Date of Visit</td>

@@ -28,7 +28,7 @@ namespace Family_Planning
             if (blnresult == true)
             {
                 e.Authenticated = true;
-                Session["FP_userid"] = Login1.UserName;
+                Session["FP_userid"] = Login1.UserName.ToLower();
 
                 Response.Redirect("dashboard.aspx");
             }
